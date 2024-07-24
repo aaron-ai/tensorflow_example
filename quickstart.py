@@ -15,7 +15,7 @@ model.compile(optimizer='sgd', loss='mean_squared_error')
 # train
 model.fit(X_train, y_train, epochs=500)
 
-# predit
+# predict
 X_test = np.array([5.0, 6.0, 7.0])
 y_pred = model.predict(X_test)
 

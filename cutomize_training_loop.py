@@ -21,6 +21,7 @@ for epoch in range(500):
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 
 X_test = np.array([5.0, 6.0, 7.0])
+# predict
 y_pred = model.predict(X_test)
 
 print(y_pred)
