@@ -12,7 +12,7 @@ model = tf.keras.models.Sequential([
 # compile the model, loss function and optimizer.
 model.compile(optimizer='sgd', loss='mean_squared_error')
 
-# traint
+# train
 model.fit(X_train, y_train, epochs=500)
 
 # predit
