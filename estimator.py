@@ -1,3 +1,5 @@
+# tf.keras is more recommended than tf.estimator.Estimator in TF 2.x
+
 import tensorflow as tf
 import numpy as np
 
@@ -5,7 +7,7 @@ import numpy as np
 def input_fn():
     X_train = np.array([1.0, 2.0, 3.0, 4.0])
     y_train = np.array([5.0, 8.0, 11.0, 14.0])
-    dataset = tf.data.Dataset.from_tensor_slices((X_train, y_train))
+    dataset = tf.data.Dataset.from_tensor_slices(({"x": X_train}, y_train))
     dataset = dataset.repeat().batch(4)
     return dataset
 
@@ -21,7 +23,7 @@ estimator.train(input_fn=input_fn, steps=500)
 # define the input function for prediction
 def predict_input_fn():
     X_test = np.array([5.0, 6.0, 7.0])
-    dataset = tf.data.Dataset.from_tensor_slices(X_test)
+    dataset = tf.data.Dataset.from_tensor_slices({"x": X_test})
     dataset = dataset.batch(3)
     return dataset
 
